@@ -13,6 +13,7 @@
 //   );
 // }
 import Banner from "@/components/Banner";
+import IdeaSubmissionCTA from "@/components/IdeaSubmissionCTA";
 import TrendingIdeas from "@/components/TrendingIdeas";
 
 export default function Home() {
@@ -32,6 +33,8 @@ export default function Home() {
       </section> */}
 
       <TrendingIdeas />
+
+      <IdeaSubmissionCTA />
 
 
     </main>
