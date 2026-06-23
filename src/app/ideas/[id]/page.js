@@ -1,10 +1,12 @@
+
+
+
 'use client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { use } from 'react';
 import { ideas } from '@/data/ideasData';
 
 export default function IdeaDetailsPage({ params }) {
-  
   const resolvedParams = use(params);
   const id = resolvedParams.id;
 
@@ -14,6 +16,10 @@ export default function IdeaDetailsPage({ params }) {
 
   const [comments, setComments] = useState(ideaData.comments || []);
   const [newComment, setNewComment] = useState('');
+  
+  
+  const [editingId, setEditingId] = useState(null);
+  const [editText, setEditText] = useState('');
 
   const handlePostComment = () => {
     if (!newComment.trim()) return;
@@ -29,6 +35,19 @@ export default function IdeaDetailsPage({ params }) {
 
   const handleDelete = (commentId) => {
     setComments(comments.filter(c => c.id !== commentId));
+  };
+
+
+  const startEdit = (comment) => {
+    setEditingId(comment.id);
+    setEditText(comment.text);
+  };
+
+  
+  const saveEdit = (commentId) => {
+    setComments(comments.map(c => c.id === commentId ? { ...c, text: editText } : c));
+    setEditingId(null);
+    setEditText('');
   };
 
   return (
@@ -76,12 +95,29 @@ export default function IdeaDetailsPage({ params }) {
           <div className="mt-6">
             {comments.map(c => (
               <div key={c.id} className="mb-4 p-4 bg-gray-50 rounded-lg flex justify-between items-center">
-                <div>
-                  <p className="font-bold text-sm">{c.user}</p>
-                  <p>{c.text}</p>
-                  <p className="text-xs text-gray-400">{c.date}</p>
+                {editingId === c.id ? (
+                  <div className="flex-1 mr-4">
+                    <input 
+                      className="w-full p-2 border rounded mb-1" 
+                      value={editText} 
+                      onChange={(e) => setEditText(e.target.value)} 
+                    />
+                    <button onClick={() => saveEdit(c.id)} className="text-green-600 text-sm font-bold hover:underline">Save</button>
+                  </div>
+                ) : (
+                  <div>
+                    <p className="font-bold text-sm">{c.user}</p>
+                    <p>{c.text}</p>
+                    <p className="text-xs text-gray-400">{c.date}</p>
+                  </div>
+                )}
+                
+                <div className="flex gap-2">
+                  {editingId !== c.id && (
+                    <button onClick={() => startEdit(c)} className="text-blue-500 text-sm hover:underline">Edit</button>
+                  )}
+                  <button onClick={() => handleDelete(c.id)} className="text-red-500 text-sm hover:underline">Delete</button>
                 </div>
-                <button onClick={() => handleDelete(c.id)} className="text-red-500 text-sm hover:underline">Delete</button>
               </div>
             ))}
           </div>
