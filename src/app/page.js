@@ -13,6 +13,7 @@
 //   );
 // }
 import Banner from "@/components/Banner";
+import TrendingIdeas from "@/components/TrendingIdeas";
 
 export default function Home() {
   return (
@@ -21,14 +22,18 @@ export default function Home() {
       <Banner />
 
       
-      <section className="py-12 px-4 md:px-8 text-center">
+      {/* <section className="py-12 px-4 md:px-8 text-center">
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
           Welcome to NexusIdeas
         </h2>
         <p className="text-slate-600 dark:text-slate-400 mb-6">
           Innovation begins with a single idea. Share yours today.
         </p>
-      </section>
+      </section> */}
+
+      <TrendingIdeas />
+
+
     </main>
   );
 }
