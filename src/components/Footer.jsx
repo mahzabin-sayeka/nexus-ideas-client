@@ -1,52 +1,55 @@
-'use client'
-import Link from "next/link";
+
+import React from 'react';
+import { FaXTwitter, FaFacebookF, FaGoogle } from "react-icons/fa6"; 
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-12 transition-colors">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+    <footer className="bg-slate-950 text-slate-400 py-16 mt-20">
+      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
         
-        {/* Brand part */}
-        <div className="flex flex-col gap-4">
-          <div className="font-bold text-2xl text-emerald-600 dark:text-emerald-400">🚀 NexusIdeas</div>
-          <p className="text-slate-600 dark:text-slate-400 text-sm">
-            Your digital gateway to infinite innovations. Explore, validate, and track your startup vision with ease and speed.
+        
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-4">NexusIdeas</h2>
+          <p className="text-sm leading-relaxed mb-6">
+            NexusIdeas provides a seamless platform for innovators to showcase, 
+            discuss, and refine their ideas. Join our community and bring your 
+            vision to life with collaborative tools.
           </p>
+          <button className="text-blue-400 font-semibold hover:underline">LEARN MORE ABOUT NexusIdeas</button>
         </div>
 
-        {/* Platform Links */}
-        <div className="flex flex-col gap-4">
-          <h3 className="font-bold text-slate-900 dark:text-white">Platform</h3>
-          <Link href="/ideas" className="text-slate-600 dark:text-slate-400 hover:text-emerald-600 text-sm">All Ideas</Link>
-          <Link href="/categories" className="text-slate-600 dark:text-slate-400 hover:text-emerald-600 text-sm">Categories</Link>
-          <Link href="/my-ideas" className="text-slate-600 dark:text-slate-400 hover:text-emerald-600 text-sm">My Ideas</Link>
+        
+        <div>
+          <h3 className="text-white font-bold mb-6">Useful Links</h3>
+          <ul className="space-y-3 text-sm">
+            <li><a href="#" className="hover:text-white">Home</a></li>
+            <li><a href="#" className="hover:text-white">Ideas</a></li>
+            <li><a href="#" className="hover:text-white">Add Idea</a></li>
+            <li><a href="#" className="hover:text-white">My Interactions</a></li>
+            <li><a href="#" className="hover:text-white">Contacts</a></li>
+          </ul>
         </div>
 
-        {/* Support Links */}
-        <div className="flex flex-col gap-4">
-          <h3 className="font-bold text-slate-900 dark:text-white">Support</h3>
-          <Link href="/about" className="text-slate-600 dark:text-slate-400 hover:text-emerald-600 text-sm">About Us</Link>
-          <Link href="/contact" className="text-slate-600 dark:text-slate-400 hover:text-emerald-600 text-sm">Contact</Link>
-          <Link href="/faqs" className="text-slate-600 dark:text-slate-400 hover:text-emerald-600 text-sm">FAQs</Link>
-        </div>
-
-        {/* CTA Section */}
-        <div className="flex flex-col gap-4">
-          <h3 className="font-bold text-slate-900 dark:text-white">Get Started</h3>
-          <p className="text-slate-600 dark:text-slate-400 text-sm">Join our community of innovators and start your journey today.</p>
-          <Link href="/register" className="bg-slate-900 dark:bg-emerald-600 text-white px-5 py-2 rounded-full text-center hover:bg-emerald-600 dark:hover:bg-emerald-500 transition-all text-sm">
-            Get Started
-          </Link>
+    
+        <div>
+          <h3 className="text-white font-bold mb-6">Contact with us</h3>
+          <p className="mb-2">📞 8 800 567.890.11</p>
+          <p className="mb-6">✉️ support@NexusIdeas.com</p>
+          <button className="bg-green-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-green-700 transition">
+            SEND A MESSAGE
+          </button>
+          
+          <div className="flex gap-4 mt-8">
+            <FaFacebookF className="cursor-pointer hover:text-white" />
+            <FaXTwitter className="cursor-pointer hover:text-white" /> 
+            <FaGoogle className="cursor-pointer hover:text-white" />
+          </div>
         </div>
       </div>
 
-      {/* Bottom Copyright */}
-      <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between gap-4 text-sm text-slate-500">
-        <p>© 2026 NexusIdeas. All rights reserved.</p>
-        <div className="flex gap-6">
-          <Link href="/privacy" className="hover:text-emerald-600">Privacy Policy</Link>
-          <Link href="/terms" className="hover:text-emerald-600">Terms of Service</Link>
-        </div>
+      
+      <div className="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-slate-800 text-center text-xs">
+        <p>© 2026 NexusIdeas. Designed by Mahjabin Jannath, Developed by Mahjabin Jannath.</p>
       </div>
     </footer>
   );
