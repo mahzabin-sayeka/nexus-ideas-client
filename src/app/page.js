@@ -15,6 +15,7 @@
 import Banner from "@/components/Banner";
 import CommunityHighlights from "@/components/CommunityHighlights";
 import IdeaSubmissionCTA from "@/components/IdeaSubmissionCTA";
+import Testimonials from "@/components/Testimonials";
 import TrendingIdeas from "@/components/TrendingIdeas";
 
 export default function Home() {
@@ -36,6 +37,8 @@ export default function Home() {
       <TrendingIdeas />
 
       <CommunityHighlights />
+
+      <Testimonials />
 
       <IdeaSubmissionCTA />
 
